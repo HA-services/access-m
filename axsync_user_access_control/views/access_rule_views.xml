@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rules -->
+    <record id="axsync_access_rule_view_tree" model="ir.ui.view">
+        <field name="name">axsync.access.rule.tree</field>
+        <field name="model">axsync.access.rule</field>
+        <field name="arch" type="xml">
+            <list string="Access Control Rules">
+                <field name="name"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="group_ids" widget="many2many_tags" optional="show"/>
+                <field name="company_ids" widget="many2many_tags" optional="show"/>
+                <field name="user_count"/>
+                <field name="read_only_user" optional="show"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="axsync_access_rule_view_search" model="ir.ui.view">
+        <field name="name">axsync.access.rule.search</field>
+        <field name="model">axsync.access.rule</field>
+        <field name="arch" type="xml">
+            <search string="Access Control Rules">
+                <field name="name"/>
+                <field name="user_ids"/>
+                <field name="group_ids"/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+                <filter name="read_only" string="Read-Only Users" domain="[('read_only_user', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="axsync_access_rule_view_form" model="ir.ui.view">
+        <field name="name">axsync.access.rule.form</field>
+        <field name="model">axsync.access.rule</field>
+        <field name="arch" type="xml">
+            <form string="Access Control Rule">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Sales team: no cost prices"/></h1>
+                    </div>
+                    <group>
+                        <group string="Who Is Restricted">
+                            <field name="user_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="group_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="company_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="user_count"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Whole-User Switches">
+                            <field name="read_only_user"/>
+                            <field name="disable_debug"/>
+                            <field name="disable_login"/>
+                            <field name="hide_apps_menu"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Menus" name="menus">
+                            <p class="text-muted">Menus selected here, and everything below them, disappear for the restricted users.</p>
+                            <field name="menu_ids" options="{'no_create': True}">
+                                <list>
+                                    <field name="complete_name"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Models" name="models">
+                            <p class="text-muted">Per model: switch off buttons and actions, hide the chatter, hide view types, reports and actions.</p>
+                            <field name="model_line_ids">
+                                <list>
+                                    <field name="model_id"/>
+                                    <field name="read_only"/>
+                                    <field name="hide_create"/>
+                                    <field name="hide_edit"/>
+                                    <field name="hide_delete"/>
+                                    <field name="hide_archive"/>
+                                    <field name="hide_duplicate"/>
+                                    <field name="hide_export"/>
+                                    <field name="hide_import"/>
+                                    <field name="hide_chatter"/>
+                                </list>
+                                <form string="Model Access">
+                                    <group>
+                                        <field name="model_id" options="{'no_create': True}"/>
+                                        <field name="model_name" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <group string="Block and Hide">
+                                            <field name="read_only"/>
+                                            <field name="hide_create"/>
+                                            <field name="hide_edit"/>
+                                            <field name="hide_delete"/>
+                                            <field name="hide_archive"/>
+                                            <field name="hide_duplicate"/>
+                                            <field name="hide_export"/>
+                                            <field name="hide_import"/>
+                                            <field name="hide_add_property"/>
+                                        </group>
+                                        <group string="Chatter">
+                                            <field name="hide_chatter"/>
+                                            <field name="hide_send_message"/>
+                                            <field name="hide_log_note"/>
+                                            <field name="hide_activity"/>
+                                        </group>
+                                    </group>
+                                    <group string="Hide Views">
+                                        <group>
+                                            <field name="hide_view_list"/>
+                                            <field name="hide_view_kanban"/>
+                                            <field name="hide_view_pivot"/>
+                                            <field name="hide_view_graph"/>
+                                        </group>
+                                        <group>
+                                            <field name="hide_view_calendar"/>
+                                            <field name="hide_view_activity"/>
+                                            <field name="hide_view_map"/>
+                                        </group>
+                                    </group>
+                                    <group string="Hide Reports and Actions">
+                                        <field name="hide_report_ids" widget="many2many_tags"
+                                               domain="[('model', '=', model_name)]" options="{'no_create': True}"/>
+                                        <field name="hide_action_ids" widget="many2many_tags"
+                                               domain="[('binding_model_id.model', '=', model_name)]"
+                                               options="{'no_create': True}"/>
+                                        <field name="hide_window_action_ids" widget="many2many_tags"
+                                               domain="[('binding_model_id.model', '=', model_name)]"
+                                               options="{'no_create': True}"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Fields" name="fields">
+                            <p class="text-muted">Make fields invisible, read-only or required, remove links, or keep them out of exports.</p>
+                            <field name="field_line_ids">
+                                <list>
+                                    <field name="model_id"/>
+                                    <field name="field_ids" widget="many2many_tags"/>
+                                    <field name="invisible"/>
+                                    <field name="readonly"/>
+                                    <field name="required"/>
+                                    <field name="no_open"/>
+                                    <field name="no_export"/>
+                                    <field name="condition_domain"/>
+                                </list>
+                                <form string="Field Access">
+                                    <group>
+                                        <field name="model_id" options="{'no_create': True}"/>
+                                        <field name="model_name" invisible="1"/>
+                                        <field name="field_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                    </group>
+                                    <group>
+                                        <group string="Field Behaviour">
+                                            <field name="invisible"/>
+                                            <field name="readonly"/>
+                                            <field name="required"/>
+                                            <field name="hide_in_kanban"/>
+                                            <field name="no_export"/>
+                                        </group>
+                                        <group string="Relational Fields">
+                                            <field name="no_open"/>
+                                            <field name="no_create"/>
+                                            <field name="no_create_edit"/>
+                                        </group>
+                                    </group>
+                                    <group string="Conditions">
+                                        <field name="condition_domain" placeholder='[("state", "=", "done")]'/>
+                                        <field name="enforce_server"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Records" name="records">
+                            <p class="text-muted">Limit which records the restricted users can read, edit, create or delete.</p>
+                            <field name="domain_line_ids">
+                                <list>
+                                    <field name="model_id"/>
+                                    <field name="domain"/>
+                                    <field name="hierarchy"/>
+                                    <field name="apply_read"/>
+                                    <field name="apply_write"/>
+                                    <field name="apply_create"/>
+                                    <field name="apply_unlink"/>
+                                </list>
+                                <form string="Record Access">
+                                    <group>
+                                        <field name="model_id" options="{'no_create': True}"/>
+                                        <field name="model_name" invisible="1"/>
+                                        <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                                    </group>
+                                    <group string="Applies To">
+                                        <group>
+                                            <field name="apply_read"/>
+                                            <field name="apply_write"/>
+                                        </group>
+                                        <group>
+                                            <field name="apply_create"/>
+                                            <field name="apply_unlink"/>
+                                        </group>
+                                    </group>
+                                    <group string="Hierarchy">
+                                        <field name="hierarchy"/>
+                                        <field name="hierarchy_field_id" invisible="not hierarchy"
+                                               required="hierarchy" options="{'no_create': True}"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Buttons, Tabs, Filters" name="elements">
+                            <p class="text-muted">Pick the buttons, tabs, filters and group-by options to hide. Elements are read from the views of the model.</p>
+                            <field name="element_line_ids">
+                                <list>
+                                    <field name="model_id"/>
+                                    <field name="kind"/>
+                                    <field name="item_ids" widget="many2many_tags"/>
+                                    <field name="condition_domain"/>
+                                </list>
+                                <form string="Hidden Elements">
+                                    <group>
+                                        <field name="model_id" options="{'no_create': True}"/>
+                                        <field name="model_name" invisible="1"/>
+                                        <field name="kind"/>
+                                        <field name="item_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                        <field name="condition_domain" invisible="kind in ('filter', 'group_by')"
+                                               placeholder='[("state", "=", "draft")]'/>
+                                    </group>
+                                    <button name="action_scan" type="object" string="Reload Elements from Views"
+                                            class="btn-secondary"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Everywhere" name="global">
+                            <group>
+                                <group string="Chatter">
+                                    <field name="hide_chatter"/>
+                                    <field name="hide_send_message"/>
+                                    <field name="hide_log_note"/>
+                                    <field name="hide_activity"/>
+                                </group>
+                                <group string="Import, Export and Properties">
+                                    <field name="hide_import"/>
+                                    <field name="hide_export"/>
+                                    <field name="hide_add_property"/>
+                                </group>
+                                <group string="Search Bar">
+                                    <field name="hide_filter_button"/>
+                                    <field name="hide_custom_filter"/>
+                                    <field name="hide_custom_group"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note" placeholder="Why does this rule exist?"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="axsync_access_rule_action" model="ir.actions.act_window">
+        <field name="name">Access Control Rules</field>
+        <field name="res_model">axsync.access.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first access rule</p>
+            <p>Choose the users, then hide the menus, fields, buttons and records they should not use.</p>
+        </field>
+    </record>
+</odoo>

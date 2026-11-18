@@ -1,0 +1,7 @@
+id,name,model_id,group_id/id,operation,domain
+access_axsync_access_rule_manager,axsync.access.rule manager,axsync.access.rule,axsync_user_access_control.group_axsync_access_manager,crud,
+access_axsync_access_model_line_manager,axsync.access.model.line manager,axsync.access.model.line,axsync_user_access_control.group_axsync_access_manager,crud,
+access_axsync_access_field_line_manager,axsync.access.field.line manager,axsync.access.field.line,axsync_user_access_control.group_axsync_access_manager,crud,
+access_axsync_access_domain_line_manager,axsync.access.domain.line manager,axsync.access.domain.line,axsync_user_access_control.group_axsync_access_manager,crud,
+access_axsync_access_element_line_manager,axsync.access.element.line manager,axsync.access.element.line,axsync_user_access_control.group_axsync_access_manager,crud,
+access_axsync_access_item_manager,axsync.access.item manager,axsync.access.item,axsync_user_access_control.group_axsync_access_manager,crud,
