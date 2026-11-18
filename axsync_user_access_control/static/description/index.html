@@ -1,0 +1,236 @@
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0; border-bottom: 1px solid #dee2e6;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="axsync_icon.png" class="img img-fluid" alt="AXSync" style="margin: 0 0 10px 0;"/>
+        </div>
+        <div class="col-md-10">
+          <p class="text-muted" style="margin: 0; font-size: 14px;">AXSync | Odoo 16.0 | Extra Tools</p>
+          <h1 style="margin: 5px 0 10px 0; font-size: 36px;">AXSync User Access Control</h1>
+          <h3 class="text-muted" style="margin: 0 0 15px 0;">Hide menus, fields, buttons, tabs and records per user or group, without code.</h3>
+          <p style="font-size: 17px;">Decide what each person sees and does in Odoo. Block create, edit, delete and export, make users read-only, hide a single field or button, limit records, and switch off developer mode or a login.</p>
+          <p><strong>Value in one line:</strong> it turns access requests that used to be developer tickets into a rule an administrator can set in minutes.</p>
+          <p><span class="badge badge-primary">Odoo 16.0</span> <span class="badge badge-secondary">Administration</span> <span class="badge badge-secondary">No extra Python libraries</span></p>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-12">
+          <img src="axsync_screenshot_1.png" class="img img-fluid" alt="Rule form with the Models tab: create, edit, delete, archive, duplicate, export and import per model" style="border: 1px solid #dee2e6;"/>
+          <p class="text-muted" style="margin: 5px 0 0 0; font-size: 13px;">A rule on Odoo 16.0, shown with demo data for fictional users and companies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">What This Module Is For</h2>
+      <p>Odoo access rights work well for apps and big areas. They are harder to use for the small, daily requests: this salesperson must not see the tax number, this clerk must not export customers, this auditor may read everything and change nothing, this tab should not appear for interns.</p>
+      <p>User Access Control adds a rule screen for exactly these requests. An administrator chooses the users or groups, ticks what to hide or block, and the restriction is in place. The module adds restrictions on top of the standard access rights. It never grants access that Odoo does not already give.</p>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">The Business Problems</h2>
+      <div class="row">
+        <div class="col-md-4" style="margin-bottom: 15px;"><div class="card"><div class="card-body"><h5>Everyone sees everything</h5><p class="text-muted" style="margin: 0;">A salesperson opens the cost price, a clerk opens the payroll menu, and nobody can say who changed what.</p></div></div></div><div class="col-md-4" style="margin-bottom: 15px;"><div class="card"><div class="card-body"><h5>Standard access rights are too coarse</h5><p class="text-muted" style="margin: 0;">Odoo groups give a whole app or nothing. Hiding one field or one button means custom code.</p></div></div></div><div class="col-md-4" style="margin-bottom: 15px;"><div class="card"><div class="card-body"><h5>Exports walk out the door</h5><p class="text-muted" style="margin: 0;">Any user with export rights can download the full customer list in two clicks.</p></div></div></div><div class="col-md-4" style="margin-bottom: 15px;"><div class="card"><div class="card-body"><h5>Auditors and trainees need read-only</h5><p class="text-muted" style="margin: 0;">There is no simple way to let someone look at everything and change nothing.</p></div></div></div><div class="col-md-4" style="margin-bottom: 15px;"><div class="card"><div class="card-body"><h5>Every restriction is a developer ticket</h5><p class="text-muted" style="margin: 0;">Hiding a tab or making a field read-only waits for a developer and has to be repeated after each upgrade.</p></div></div></div><div class="col-md-4" style="margin-bottom: 15px;"><div class="card"><div class="card-body"><h5>Staff leave, access stays</h5><p class="text-muted" style="margin: 0;">Disabling a login or switching off developer mode should take seconds, not a project.</p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">The Solution</h2>
+      <table class="table table-bordered">
+        <thead class="thead-light"><tr><th>Problem</th><th>How the module addresses it</th></tr></thead>
+        <tbody>
+          <tr><td>Users see too much</td><td>Hide menus, fields, tabs, buttons, filters and view types per user or group.</td></tr>
+          <tr><td>Coarse access rights</td><td>Fine settings per model, per field and per record filter on top of the standard groups.</td></tr>
+          <tr><td>Data leaves through export</td><td>Hide and refuse Export and Import, per model or everywhere, and mark single fields as not exportable.</td></tr>
+          <tr><td>Auditors and trainees</td><td>A Read-Only User switch that keeps Odoo usable for reading.</td></tr>
+          <tr><td>Developer tickets</td><td>Rules are set by an administrator in the interface, without code.</td></tr>
+          <tr><td>Offboarding</td><td>Disable the login or the developer mode from the same rule.</td></tr>
+        </tbody>
+      </table>
+      <p>Restrictions are placed on top of standard Odoo access rights and record rules, so they apply to every application, including your own modules.</p>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">Feature Breakdown</h2>
+      <h4 style="margin-top: 20px;">1. Rules for users and groups</h4>
+      <p>One rule can target selected users, whole user groups, or both, and can be limited to some companies. Several rules can apply to the same user and their restrictions add up. A rule can be archived without losing its settings.</p>
+      <h4 style="margin-top: 20px;">2. Hide menus</h4>
+      <p>Pick the menus a user must not see. Everything below a hidden menu disappears with it, including the app on the home screen.</p>
+      <h4 style="margin-top: 20px;">3. Block create, edit and delete</h4>
+      <p>Switch off Create, Edit or Delete for a model. The buttons disappear and the server refuses the operation as well.</p>
+      <h4 style="margin-top: 20px;">4. Hide Archive, Duplicate, Export, Import and Add Property</h4>
+      <p>Remove these actions from the Action menu and the list toolbar of a model, or everywhere at once. Duplicate, archive, export and import are also refused on the server.</p>
+      <h4 style="margin-top: 20px;">5. Chatter control</h4>
+      <p>Hide the whole chatter, or only Send Message, Log Note or Schedule Activity, per model or everywhere. Posting by a restricted user is refused on the server. System tracking messages keep working.</p>
+      <h4 style="margin-top: 20px;">6. Field control</h4>
+      <p>Make a field invisible, read-only or required, remove the arrow to the linked record, remove Create or Create and Edit from a relational field, hide it in kanban cards or forbid its export.</p>
+      <h4 style="margin-top: 20px;">7. Conditions on records</h4>
+      <p>A field rule or a button, tab or filter rule can apply only to records that match a condition, for example read-only once the order is confirmed.</p>
+      <h4 style="margin-top: 20px;">8. Server enforcement when you need it</h4>
+      <p>Tick Also Enforce on the Server and a read-only field rejects writes and a required field rejects empty saves, also from imports and automation.</p>
+      <h4 style="margin-top: 20px;">9. Record filters</h4>
+      <p>Add a domain that limits which records a user can read, edit, create or delete. Choose the operations separately. A soft restriction lets users read all records but change only theirs.</p>
+      <h4 style="margin-top: 20px;">10. Own and subordinates</h4>
+      <p>Fill the Reports To field on the user and let managers see the records of their team through a single option.</p>
+      <h4 style="margin-top: 20px;">11. Buttons, tabs, filters and group-by options</h4>
+      <p>Read the views of a model, pick the elements to hide and they disappear for the restricted users. Add a condition to hide a button only in some states.</p>
+      <h4 style="margin-top: 20px;">12. Hide views, reports and actions</h4>
+      <p>Remove kanban, pivot, graph, calendar or other view types from a model, and take reports and bound actions off the Print and Action menus. Printing a hidden report is refused.</p>
+      <h4 style="margin-top: 20px;">13. Read-only users</h4>
+      <p>One switch lets a user read everything they could before and change nothing. Odoo keeps working for them: they can still log in, browse and read Discuss.</p>
+      <h4 style="margin-top: 20px;">14. Developer mode and login</h4>
+      <p>Switch off developer mode for a user, or disable a login, which also ends the open session.</p>
+      <h4 style="margin-top: 20px;">15. Search bar control</h4>
+      <p>Remove the filter button, Add Custom Filter or Add Custom Group so users stay with the filters you prepared.</p>
+      <h4 style="margin-top: 20px;">16. Safe by design</h4>
+      <p>Members of the Access Control Manager group and the administrator are never restricted, so a rule can never lock out the people who manage it.</p>
+
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">Screenshots</h2>
+      <p class="text-muted">All screenshots come from the module running on Odoo 16.0 with demo data for fictional users and companies.</p>
+      <h5 style="margin-top: 25px;">1. Model access</h5>
+      <img src="axsync_screenshot_1.png" class="img img-fluid" alt="Rule form with the Models tab: create, edit, delete, archive, duplicate, export and import per model" style="border: 1px solid #dee2e6;"/>
+      <h5 style="margin-top: 25px;">2. Field access</h5>
+      <img src="axsync_screenshot_2.png" class="img img-fluid" alt="Fields tab: invisible, read-only and required fields, with a condition on the record" style="border: 1px solid #dee2e6;"/>
+      <h5 style="margin-top: 25px;">3. Record access</h5>
+      <img src="axsync_screenshot_3.png" class="img img-fluid" alt="Records tab: a record filter that limits users to their own orders" style="border: 1px solid #dee2e6;"/>
+      <h5 style="margin-top: 25px;">4. Buttons, tabs and filters</h5>
+      <img src="axsync_screenshot_4.png" class="img img-fluid" alt="Buttons, Tabs, Filters tab listing the elements hidden on a model" style="border: 1px solid #dee2e6;"/>
+      <h5 style="margin-top: 25px;">5. What the restricted user sees</h5>
+      <img src="axsync_screenshot_5.png" class="img img-fluid" alt="Contact form of a sales rep: Sales and Purchase tab hidden, Tax ID hidden, Delete, Archive, Duplicate and Export removed" style="border: 1px solid #dee2e6;"/>
+      <h5 style="margin-top: 25px;">6. A read-only user</h5>
+      <img src="axsync_screenshot_6.png" class="img img-fluid" alt="Contact form of an auditor: everything visible, nothing editable and no New button" style="border: 1px solid #dee2e6;"/>
+
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">Business Benefits</h2>
+      <div class="row">
+        <div class="col-md-4"><h5>Less exposure of data</h5><p class="text-muted">People see and export what their job needs, nothing more.</p></div>
+        <div class="col-md-4"><h5>Fewer mistakes</h5><p class="text-muted">Read-only fields, hidden buttons and blocked deletes protect the records that matter.</p></div>
+        <div class="col-md-4"><h5>Faster changes</h5><p class="text-muted">An administrator adjusts a rule in minutes instead of waiting for a developer.</p></div>
+        <div class="col-md-4"><h5>Simpler audits</h5><p class="text-muted">Read-only access for auditors and a clear list of rules per user.</p></div>
+        <div class="col-md-4"><h5>Survives upgrades</h5><p class="text-muted">Rules are data, not patched views, so they stay when you update applications.</p></div>
+        <div class="col-md-4"><h5>Native workflow</h5><p class="text-muted">Built on standard groups, views and record rules. No external services.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">How It Works</h2>
+      <ol>
+        <li><strong>Install the module.</strong> Install User Access Control from the Apps menu. Nothing changes for anyone yet.</li>
+        <li><strong>Create a rule.</strong> Open Access Control &gt; Rules, give the rule a name and choose the users or user groups.</li>
+        <li><strong>Choose what to restrict.</strong> Use the tabs for menus, models, fields, records and elements, or the whole-user switches.</li>
+        <li><strong>Save and test.</strong> Log in as the user, or open a private window, and check the screen. A browser refresh applies the change.</li>
+        <li><strong>Refine.</strong> Add conditions, enforce on the server where data must be protected, or archive the rule to switch it off.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">Compatibility and Requirements</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th style="width: 30%;">Odoo version</th><td>16.0 only. Separate builds exist for the other versions.</td></tr>
+          <tr><th>Required Odoo apps</th><td>Base, web and Discuss (mail). Works with any other application.</td></tr>
+          <tr><th>Python libraries</th><td>None beyond Odoo itself.</td></tr>
+          <tr><th>Multi-company</th><td>Supported. A rule can be limited to some companies. Covered by an automated test.</td></tr>
+          <tr><th>Testing</th><td>An automated test suite runs on Odoo 16.0, and the restrictions were also checked in the web client.</td></tr>
+          <tr><th>Data and services</th><td>No external services. Rules are stored in your database.</td></tr>
+        </tbody>
+      </table>
+      <h5>What is enforced where</h5>
+      <ul>
+        <li>Enforced on the server: blocking create, edit and delete, read-only users, record filters, blanking of invisible fields, duplicate, archive, export and import, posting messages, notes and activities, printing hidden reports, disabled login and developer mode, and Read-Only and Required where Also Enforce on the Server is ticked.</li>
+        <li>Screen only: menus, buttons, tabs, filters, group-by options, view types, bound actions, custom filter and group entries, the Apps menu button, the chatter and Read-Only and Required without server enforcement. Direct API calls are not stopped by a purely visual restriction.</li>
+      </ul>
+      <h5>Known limitations</h5>
+      <ul>
+        <li>Members of Access Control Manager and the administrator are never restricted.</li>
+        <li>Read-only users can still write the technical records Odoo needs for their session: presence, login logs, notification state, user settings, saved filters and attachments.</li>
+        <li>A hidden menu is not an access right. Block the model as well when the data must be protected.</li>
+        <li>The field list of the export dialog is not filtered. A field marked Not Exportable is refused when the export runs.</li>
+        <li>Conditions support simple fields of the same model, not related fields.</li>
+        <li>The Add Property switches belong to Odoo 17 and later and have no effect on Odoo 16.</li>
+        <li>Views of other applications can differ between versions. Use Reload Elements from Views after installing or updating applications.</li>
+        <li>The Spreadsheet application is not covered.</li>
+        <li>Labels and texts are in English and can be translated with the standard Odoo tools.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">Frequently Asked Questions</h2>
+      <h5>Does it change anything after installation?</h5>
+      <p>No. Without a rule nobody is restricted. Members of the Access Control Manager group and the administrator are never restricted.</p>
+      <h5>Is hiding a menu enough to protect data?</h5>
+      <p>No. Hiding is for the screen. To protect data use the model switches, the Records tab, Read-Only User or Also Enforce on the Server.</p>
+      <h5>What is the difference between hiding a field and blocking it on the server?</h5>
+      <p>An invisible field is hidden in the screens and blanked in the data the session receives. Read-Only and Required are screen settings unless Also Enforce on the Server is ticked.</p>
+      <h5>Can a read-only user still use Odoo?</h5>
+      <p>Yes. They can log in, read records and use Discuss. They cannot create, edit or delete records. Technical records Odoo needs for a session, such as presence and saved filters, still work.</p>
+      <h5>Can two rules apply to the same user?</h5>
+      <p>Yes. The restrictions add up. If one rule hides something, it stays hidden.</p>
+      <h5>Does it work with other applications?</h5>
+      <p>Yes, for any model and view. Use Reload Elements from Views to list the buttons, tabs and filters of a model after installing an application.</p>
+      <h5>Does it support multi-company?</h5>
+      <p>Yes. A rule can apply only while one of its companies is the current company of the user.</p>
+      <h5>Does it work with my Odoo?</h5>
+      <p>Yes. It works with Odoo 16.0 and is built on standard web client and ORM features.</p>
+      <h5>What happens when I archive a rule?</h5>
+      <p>It stops applying immediately. Its settings are kept.</p>
+      <h5>How can I contact AXSync for support?</h5>
+      <p>Email <a href="mailto:hunain@axsync.com">hunain@axsync.com</a> or use the Contact the Author option on this Odoo Apps Store page.</p>
+
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0;">
+    <div class="container">
+      <h2 style="margin-bottom: 15px;">Support and Publisher</h2>
+      <p><strong>Published by AXSync</strong></p>
+      <p>Website: www.axsync.com</p>
+      <p>Support email: <a href="mailto:hunain@axsync.com">hunain@axsync.com</a></p>
+      <p>Please include your Odoo version, the module version, and what you expected to see. Screenshots help.</p>
+      <p class="text-muted" style="font-size: 13px;">This module is published by AXSync and is not an official Odoo product. Odoo is a trademark of Odoo S.A.</p>
+    </div>
+  </div>
+</section>
+<section class="oe_container">
+  <div class="oe_row oe_spaced" style="padding: 30px 0; background-color: #f8f9fa;">
+    <div class="container text-center">
+      <h2 style="margin-bottom: 10px;">Give Every User Exactly the Access Their Job Needs.</h2>
+      <p style="font-size: 17px;">Install AXSync User Access Control and manage restrictions from one screen.</p>
+      <p><strong>www.axsync.com</strong></p>
+    </div>
+  </div>
+</section>

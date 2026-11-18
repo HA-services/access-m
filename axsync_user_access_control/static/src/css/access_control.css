@@ -1,0 +1,10 @@
+/* Part of AXSync. See LICENSE file for full copyright and licensing details. */
+.axsync-no-apps-menu .o_navbar_apps_menu { display: none !important; }
+.axsync-no-filter-button .o_searchview_dropdown_toggler { display: none !important; }
+.axsync-no-custom-filter .o_add_custom_filter_menu { display: none !important; }
+.axsync-no-custom-group .o_add_custom_group_menu { display: none !important; }
+
+.axsync-no-send .o_ChatterTopbar_buttonSendMessage { display: none !important; }
+.axsync-no-note .o_ChatterTopbar_buttonLogNote { display: none !important; }
+.axsync-no-activity .o_ChatterTopbar_buttonScheduleActivity { display: none !important; }
+.axsync-no-chatter .o_Chatter, .axsync-no-chatter .o_ChatterContainer { display: none !important; }

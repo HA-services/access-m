@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="axsync_access_menu_root" name="Access Control" sequence="95"
+              groups="axsync_user_access_control.group_axsync_access_manager"
+              web_icon="axsync_user_access_control,static/description/icon.png"/>
+    <menuitem id="axsync_access_menu_rules" name="Rules" parent="axsync_access_menu_root"
+              action="axsync_access_rule_action" sequence="10"/>
+</odoo>
