@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_axsync_access_rule_manager,axsync.access.rule manager,model_axsync_access_rule,group_axsync_access_manager,1,1,1,1
+access_axsync_access_model_line_manager,axsync.access.model.line manager,model_axsync_access_model_line,group_axsync_access_manager,1,1,1,1
+access_axsync_access_field_line_manager,axsync.access.field.line manager,model_axsync_access_field_line,group_axsync_access_manager,1,1,1,1
+access_axsync_access_domain_line_manager,axsync.access.domain.line manager,model_axsync_access_domain_line,group_axsync_access_manager,1,1,1,1
+access_axsync_access_element_line_manager,axsync.access.element.line manager,model_axsync_access_element_line,group_axsync_access_manager,1,1,1,1
+access_axsync_access_item_manager,axsync.access.item manager,model_axsync_access_item,group_axsync_access_manager,1,1,1,1
